@@ -1,0 +1,26 @@
+.social {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.social:empty {
+  display: none;
+}
+
+.social-item {
+  height: 3rem;
+  width: 3rem;
+}
+
+.social-item:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.social-item a {
+  display: block;
+}
+
+.social-item svg {
+  height: 3rem;
+  width: 3rem;
+}

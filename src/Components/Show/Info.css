@@ -1,0 +1,37 @@
+.show-info {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+}
+
+.show-rating {
+  font-size: 3rem;
+}
+
+.show-rating-muted {
+  font-size: 1.5rem;
+  margin-left: -0.5rem;
+}
+
+.show-info p {
+  width: min-content;
+  line-height: 1;
+  margin-left: 1rem;
+  font-size: 1.3rem;
+  white-space: pre-line;
+  opacity: 0.6;
+}
+
+.show-info button {
+  font-family: inherit;
+  margin-left: 1rem;
+  color: var(--color-white);
+  background: transparent;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.modal iframe {
+  height: 50rem;
+}

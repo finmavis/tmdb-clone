@@ -1,0 +1,101 @@
+:root {
+  --color-white: #fff;
+  --color-black: #000;
+  --color-bg-1: #f4f4f4;
+  --color-bg-2: #393939;
+  --color-text-1: #aaa;
+  --color-text-2: #4d4d4d;
+  --color-blue: #00c6cf;
+  --color-green: #05c19c;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@media screen and (max-width: 992px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: "Roboto Slab", sans-serif;
+  color: var(--color-black);
+  background-color: var(--color-bg-1);
+  overflow-y: scroll;
+}
+
+a:link,
+a:hover,
+a:focus,
+a:visited,
+.btn:link,
+.btn:hover,
+.btn:focus,
+.btn:visited {
+  text-decoration: none;
+}
+
+.btn-discover {
+  transition: all 0.2s;
+}
+
+.btn-discover.active,
+.btn-discover:hover {
+  border-bottom: 1px solid currentColor;
+}
+
+.btn-blue:link,
+.btn-blue:hover,
+.btn-blue:focus,
+.btn-blue:visited {
+  color: var(--color-blue);
+}
+
+.btn-green:link,
+.btn-green:hover,
+.btn-green:focus,
+.btn-green:visited {
+  color: var(--color-green);
+}
+
+.btn-rounded:link,
+.btn-rounded:hover,
+.btn-rounded:focus,
+.btn-rounded:visited {
+  padding: 0.3rem 0.8rem;
+  color: var(--color-white);
+  background-color: var(--color-black);
+  border-radius: 0.4rem;
+}
+
+.heading-3 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.section-show {
+  background-color: var(--color-white);
+  min-height: calc(100vh - 10.2rem);
+  font-family: 1.6rem;
+  font-size: 1.6rem;
+}

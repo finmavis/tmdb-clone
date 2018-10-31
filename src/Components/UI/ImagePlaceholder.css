@@ -1,0 +1,15 @@
+.image-placeholder {
+  width: 18.5rem;
+  height: 100%;
+  min-height: 27.75rem;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-placeholder svg {
+  height: 9rem;
+  width: 9rem;
+  fill: #fff;
+}

@@ -1,0 +1,11 @@
+.show-title {
+  font-family: inherit;
+  font-size: 4rem;
+  margin: 1rem 0;
+  line-height: 1;
+}
+
+.show-title-muted {
+  opacity: 0.5;
+  font-size: 70%;
+}

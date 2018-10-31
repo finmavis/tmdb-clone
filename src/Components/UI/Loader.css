@@ -1,0 +1,151 @@
+.placeholder {
+  background-color: #fff;
+  border-radius: 0.5rem;
+}
+
+.placeholder-show {
+  height: calc(100vh - 10.1rem);
+}
+
+.placeholder-animate {
+  height: 27.8rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  animation-duration: 1.7s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: placeholderAnimate;
+  background: #f6f7f8; /* Fallback */
+  background: linear-gradient(to right, #eee 2%, #ddd 18%, #eee 33%);
+  background-size: 130rem;
+}
+
+.placeholder-show .placeholder-animate {
+  height: calc(100vh - 10.1rem);
+}
+
+.placeholder-item,
+.placeholder-show-item {
+  width: 100%;
+  height: 2rem;
+  position: absolute;
+  background: #fff;
+  z-index: 2;
+}
+
+.placeholder-item:nth-child(1) {
+  top: 0;
+  height: 100%;
+  width: 2rem;
+  left: 18.5rem;
+}
+
+.placeholder-item:nth-child(2) {
+  top: 0;
+  height: 2rem;
+  left: 18.5rem;
+}
+
+.placeholder-item:nth-child(3) {
+  top: 7rem;
+  height: 2rem;
+  left: 18.5rem;
+}
+
+.placeholder-item:nth-child(4) {
+  top: 20rem;
+  height: 2rem;
+  left: 18.5rem;
+}
+
+.placeholder-item:nth-child(5) {
+  bottom: 0;
+  height: 2rem;
+  left: 18.5rem;
+}
+
+.placeholder-item:nth-child(6) {
+  top: 0;
+  height: 100%;
+  right: 0;
+  width: 2rem;
+}
+
+.placeholder-item:nth-child(7) {
+  top: 2rem;
+  height: 5rem;
+  left: 26rem;
+  width: 2rem;
+}
+
+.placeholder-show-item:nth-child(1) {
+  top: 0;
+}
+
+.placeholder-show-item:nth-child(2) {
+  top: 7rem;
+  left: 27rem;
+}
+
+.placeholder-show-item:nth-child(3) {
+  top: 14rem;
+  left: 27rem;
+}
+
+.placeholder-show-item:nth-child(4) {
+  top: 32rem;
+}
+
+.placeholder-show-item:nth-child(5) {
+  height: 30rem;
+  top: 2rem;
+  width: 2rem;
+  left: 25rem;
+}
+
+.placeholder-show-item:nth-child(6) {
+  top: 39rem;
+}
+
+.placeholder-show-item:nth-child(7) {
+  top: 41rem;
+  width: 2rem;
+  height: 20rem;
+  left: 16rem;
+}
+
+.placeholder-show-item:nth-child(8) {
+  top: 41rem;
+  width: 2rem;
+  height: 20rem;
+  left: 34rem;
+}
+
+.placeholder-show-item:nth-child(9) {
+  top: 41rem;
+  width: 2rem;
+  height: 20rem;
+  left: 51rem;
+}
+
+.placeholder-show-item:nth-child(10) {
+  top: 41rem;
+  width: 2rem;
+  height: 20rem;
+  left: 70rem;
+}
+
+.placeholder-show-item:nth-child(11) {
+  bottom: 0;
+}
+
+@keyframes placeholderAnimate {
+  0% {
+    background-position: -650px 0;
+  }
+  100% {
+    background-position: 650px 0;
+  }
+}
