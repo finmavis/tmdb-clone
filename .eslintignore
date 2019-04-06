@@ -1,0 +1,10 @@
+# /node_modules/* and /bower_components/* in the project root are ignored by default
+
+# Ignore dist folder
+dist/*
+
+# Ignore build folder
+build/*
+
+# Ignore public folder
+public/*
