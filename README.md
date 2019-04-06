@@ -1,6 +1,7 @@
 # TMDB Clone
 
-This project is build by [React.js](https://reactjs.org) and using an API by [TMDB](https://www.themoviedb.org).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Using API from [TMDB](https://www.themoviedb.org).<br>
+To see this project in action, go to [Demo TMDB Clone](https://tmdb-clone.firebaseapp.com)
 
 ## Getting Started
 
@@ -15,10 +16,10 @@ This project is build by [React.js](https://reactjs.org) and using an API by [TM
   if you're using [Yarn](https://yarnpkg.com) :
 
   ```
-  yarn install
+  yarn
   ```
 
-  if you're using npm :
+  if you're using [npm](https://www.npmjs.com) :
 
   ```
   npm install
@@ -36,4 +37,4 @@ This project is build by [React.js](https://reactjs.org) and using an API by [TM
 
 - Now run **yarn start** or **npm run start**
 
-- Happy codding!
+- Happy hacking!
