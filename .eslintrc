@@ -1,6 +1,5 @@
 {
   "extends": ["react-app", "plugin:prettier/recommended"],
-  "plugins": ["react-hooks"],
   "env": {
     "browser": true,
     "node": true,
@@ -27,8 +26,6 @@
       {
         "props": false
       }
-    ],
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    ]
   }
 }
