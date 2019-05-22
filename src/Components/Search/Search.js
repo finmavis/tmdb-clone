@@ -48,15 +48,17 @@ const Search = ({ handleSubmit, handleChange, value }) => (
   <SectionSearch>
     <SearchBox>
       <Container>
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={handleSubmit}>
           <SearchIconBox>
-            <SearchIcon className="search-icon-image" />
+            <SearchIcon className='search-icon-image' />
           </SearchIconBox>
-          <input 
-            type="text" 
-            name="search" 
-            placeholder="Search for a movie or tv show" 
-            onChange={(e) => handleChange(e)} value={value} />
+          <input
+            type='text'
+            name='search'
+            placeholder='Search for a movie or tv show'
+            onChange={handleChange}
+            value={value}
+          />
         </form>
       </Container>
     </SearchBox>
@@ -66,7 +68,7 @@ const Search = ({ handleSubmit, handleChange, value }) => (
 Search.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired
+  value: PropTypes.string.isRequired,
 };
 
 export default Search;

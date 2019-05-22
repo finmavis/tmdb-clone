@@ -17,29 +17,32 @@ const AsyncSearch = asyncComponent(() => import('./Containers/Search'));
 
 class App extends Component {
   state = {
-    searchQuery: ''
+    searchQuery: '',
   };
 
   handleChange = e => {
     e.preventDefault();
     this.setState({
-      searchQuery: e.target.value
+      searchQuery: e.target.value,
     });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    if(this.state.searchQuery === '') return;
-    if(this.props.location.pathname === '/search/movie' || this.props.location.pathname === '/search/tv') {
+    if (this.state.searchQuery === '') return;
+    if (
+      this.props.location.pathname === '/search/movie' ||
+      this.props.location.pathname === '/search/tv'
+    ) {
       this.props.history.push({
         pathname: this.props.location.pathname,
-        search: `?query=${this.state.searchQuery}`
+        search: `?query=${this.state.searchQuery}`,
       });
       return;
     }
     this.props.history.push({
-      pathname: "/search/movie",
-      search: `?query=${this.state.searchQuery}`
+      pathname: '/search/movie',
+      search: `?query=${this.state.searchQuery}`,
     });
   };
 
@@ -47,11 +50,12 @@ class App extends Component {
     return (
       <Fragment>
         <Navigation />
-        <SearchBox 
+        <SearchBox
           value={this.state.searchQuery}
-          handleChange={(e) => this.handleChange(e)}
-          handleSubmit={(e) => this.handleSubmit(e)} />
-        <main className="main">
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
+        <main className='main'>
           <Switch>
             <Route path='/discover/:type' component={AsyncDiscover} />
             <Route path='/movies/:type' component={AsyncMovies} />
