@@ -18,23 +18,26 @@ class Search extends Component {
     page: 1,
     results: [],
     total_pages: 0,
-    total_results: 0
+    total_results: 0,
   };
 
   componentDidMount() {
     const { page, query } = queryString.parse(this.props.location.search);
     this.loadData(page, query);
-  };
+  }
 
   componentDidUpdate(prevProps, prevState) {
-    if((prevProps.location.search !== this.props.location.search) || (prevProps.location.pathname !== this.props.location.pathname)) {
+    if (
+      prevProps.location.search !== this.props.location.search ||
+      prevProps.location.pathname !== this.props.location.pathname
+    ) {
       const { page, query } = queryString.parse(this.props.location.search);
       this.loadData(page, query);
     }
-  };
+  }
 
   toggleLoading = () => {
-    this.setState({loading: !this.state.loading});
+    this.setState({ loading: !this.state.loading });
   };
 
   loadData = async (toPage = 1, query) => {
@@ -60,34 +63,56 @@ class Search extends Component {
     const { type } = this.props.match.params;
     const { query } = queryString.parse(this.props.location.search);
     return (
-      <section className="list-item">
+      <section className='list-item'>
         <Container>
-          <Heading type="h2">
-            search <Link to={`/search/movie?query=${query}`} className={`btn btn-blue btn-discover ${type === 'movie' ? 'active' : ''}`}>movies</Link> or <Link to={`/search/tv?query=${query}`} className={`btn btn-green btn-discover ${type === 'tv' ? 'active' : ''}`}>tv shows</Link>
+          <Heading type='h2'>
+            search{' '}
+            <Link
+              to={`/search/movie?query=${query}`}
+              className={`btn btn-blue btn-discover ${
+                type === 'movie' ? 'active' : ''
+              }`}
+            >
+              movies
+            </Link>{' '}
+            or{' '}
+            <Link
+              to={`/search/tv?query=${query}`}
+              className={`btn btn-green btn-discover ${
+                type === 'tv' ? 'active' : ''
+              }`}
+            >
+              tv shows
+            </Link>
           </Heading>
           <Row>
-            { loading ? <LoaderList /> : <ListItem data={results} type={type} />}
+            {loading ? <LoaderList /> : <ListItem data={results} type={type} />}
           </Row>
-          <Pagination 
-            currentPage={page} 
-            totalPages={total_pages} 
-            totalResults={total_results} >
-            <Previous to={{
+          <Pagination
+            currentPage={page}
+            totalPages={total_pages}
+            totalResults={total_results}
+          >
+            <Previous
+              to={{
                 pathname: url,
-                search: `?page=${page - 1}&query=${query}`
-              }}
-            currentPage={page} />
-            <Next to={{
-                pathname: url,
-                search: `?page=${page + 1}&query=${query}`
+                search: `?page=${page - 1}&query=${query}`,
               }}
               currentPage={page}
-              lastPages={total_pages} />
+            />
+            <Next
+              to={{
+                pathname: url,
+                search: `?page=${page + 1}&query=${query}`,
+              }}
+              currentPage={page}
+              lastPages={total_pages}
+            />
           </Pagination>
         </Container>
       </section>
     );
-  };
-};
+  }
+}
 
 export default Search;

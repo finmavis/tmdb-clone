@@ -28,28 +28,28 @@ class ShowTv extends Component {
     vote_average: null,
     external_ids: {},
     videos: {
-      results: []
+      results: [],
     },
     recommendations: {
-      results: []
+      results: [],
     },
     credits: {
-      cast: []
+      cast: [],
     },
-    modal: false
-  }
+    modal: false,
+  };
 
   componentDidMount() {
     const { id } = this.props.match.params;
     this.loadSingleMovie(id);
-  };
+  }
 
   componentDidUpdate(prevProps, prevState) {
     const { id } = this.props.match.params;
-    if(prevProps.match.url !== this.props.match.url) {
-      this.loadSingleMovie(id)
-    };
-  };
+    if (prevProps.match.url !== this.props.match.url) {
+      this.loadSingleMovie(id);
+    }
+  }
 
   loadSingleMovie = async id => {
     this.toggleLoading();
@@ -57,64 +57,89 @@ class ShowTv extends Component {
     this.setState({
       ...this.state,
       ...data,
-      loading: false
+      loading: false,
     });
     window.scroll({
       top: 0,
-    })
+    });
   };
 
   toggleLoading = () => {
-    this.setState({loading: !this.state.loading});
+    this.setState({ loading: !this.state.loading });
   };
 
   toggleModal = () => {
-    this.setState({modal: !this.state.modal})
-  }
+    this.setState({ modal: !this.state.modal });
+  };
 
   render() {
-    const { loading, name, poster_path, first_air_date, vote_average, overview, backdrop_path, homepage, external_ids, status, genres, episode_run_time, original_language, type, networks, modal } = this.state;
+    const {
+      loading,
+      name,
+      poster_path,
+      first_air_date,
+      vote_average,
+      overview,
+      backdrop_path,
+      homepage,
+      external_ids,
+      status,
+      genres,
+      episode_run_time,
+      original_language,
+      type,
+      networks,
+      modal,
+    } = this.state;
     const { cast } = this.state.credits;
-    const { results:recommendations } = this.state.recommendations;
-    const trailer = this.state.videos.results.find(video => video.type === "Trailer");
-    const lang = languageList.find(lang => lang.iso_639_1 === original_language);
-    const [ , url, ] = this.props.match.url.split("/");
+    const { results: recommendations } = this.state.recommendations;
+    const trailer = this.state.videos.results.find(
+      video => video.type === 'Trailer',
+    );
+    const lang = languageList.find(
+      lang => lang.iso_639_1 === original_language,
+    );
+    const [, url] = this.props.match.url.split('/');
     document.title = `TMDB Clone ${name ? `| ${name}` : ''}`;
     return (
-      <section className="section-show">
-        {
-          loading 
-            ? <Container><Loader type="show" /></Container> 
-            : <Fragment>
-                <Header
-                  title={name}
-                  poster={poster_path}
-                  year={first_air_date}
-                  score={vote_average}
-                  trailer={trailer}
-                  text={overview}
-                  backdrop_path={backdrop_path}
-                  modal={modal}
-                  toggleModal={this.toggleModal} />
-                <Detail
-                  url={url}
-                  title={name}
-                  casts={cast.slice(0, 5)}
-                  recommendations={recommendations}
-                  homepage={homepage}
-                  social={external_ids}
-                  status={status}
-                  releaseDate={first_air_date}
-                  language={lang.english_name}
-                  genres={genres}
-                  episodeRuntime={episode_run_time}
-                  type={type}
-                  networks={networks} />
-              </Fragment>
-        }
+      <section className='section-show'>
+        {loading ? (
+          <Container>
+            <Loader type='show' />
+          </Container>
+        ) : (
+          <Fragment>
+            <Header
+              title={name}
+              poster={poster_path}
+              year={first_air_date}
+              score={vote_average}
+              trailer={trailer}
+              text={overview}
+              backdrop_path={backdrop_path}
+              modal={modal}
+              toggleModal={this.toggleModal}
+            />
+            <Detail
+              url={url}
+              title={name}
+              casts={cast.slice(0, 5)}
+              recommendations={recommendations}
+              homepage={homepage}
+              social={external_ids}
+              status={status}
+              releaseDate={first_air_date}
+              language={lang.english_name}
+              genres={genres}
+              episodeRuntime={episode_run_time}
+              type={type}
+              networks={networks}
+            />
+          </Fragment>
+        )}
       </section>
     );
-  };
-};
+  }
+}
 
 export default ShowTv;

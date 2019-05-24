@@ -18,23 +18,26 @@ class Tvs extends Component {
     page: 1,
     results: [],
     total_pages: 0,
-    total_results: 0
+    total_results: 0,
   };
 
   componentDidMount() {
     const { page } = queryString.parse(this.props.location.search);
     this.loadData(page);
-  };
+  }
 
   componentDidUpdate(prevProps, prevState) {
-    if((prevProps.location.search !== this.props.location.search) || (prevProps.location.pathname !== this.props.location.pathname)) {
+    if (
+      prevProps.location.search !== this.props.location.search ||
+      prevProps.location.pathname !== this.props.location.pathname
+    ) {
       const { page } = queryString.parse(this.props.location.search);
       this.loadData(page);
     }
-  };
+  }
 
   toggleLoading = () => {
-    this.setState({loading: !this.state.loading});
+    this.setState({ loading: !this.state.loading });
   };
 
   loadData = async (toPage = 1) => {
@@ -58,36 +61,58 @@ class Tvs extends Component {
     const { loading, results, page, total_pages, total_results } = this.state;
     const { url } = this.props.match;
     const { type } = this.props.match.params;
-    document.title = "TMDB Clone | Tv Shows";
+    document.title = 'TMDB Clone | Tv Shows';
     return (
-      <section className="list-item">
+      <section className='list-item'>
         <Container>
-          <Heading type="h2">
-            <Link to="/tvs/popular" className={`btn btn-blue btn-discover ${type === 'popular' ? 'active' : ''}`}>Popular</Link> or <Link to="/tvs/top-rated" className={`btn btn-green btn-discover ${type === 'top-rated' ? 'active' : ''}`}>Top Rated</Link> Tv Shows
+          <Heading type='h2'>
+            <Link
+              to='/tvs/popular'
+              className={`btn btn-blue btn-discover ${
+                type === 'popular' ? 'active' : ''
+              }`}
+            >
+              Popular
+            </Link>{' '}
+            or{' '}
+            <Link
+              to='/tvs/top-rated'
+              className={`btn btn-green btn-discover ${
+                type === 'top-rated' ? 'active' : ''
+              }`}
+            >
+              Top Rated
+            </Link>{' '}
+            Tv Shows
           </Heading>
           <Row>
-            { loading ? <LoaderList /> : <ListItem data={results} type='tv' />}
+            {loading ? <LoaderList /> : <ListItem data={results} type='tv' />}
           </Row>
-          <Pagination 
-            currentPage={page} 
-            totalPages={total_pages} 
-            totalResults={total_results} >
-            <Previous to={{
+          <Pagination
+            currentPage={page}
+            totalPages={total_pages}
+            totalResults={total_results}
+          >
+            <Previous
+              to={{
                 pathname: url,
-                search: `?page=${page - 1}`
-              }}
-            currentPage={page} />
-            <Next to={{
-                pathname: url,
-                search: `?page=${page + 1}`
+                search: `?page=${page - 1}`,
               }}
               currentPage={page}
-              lastPages={total_pages} />
+            />
+            <Next
+              to={{
+                pathname: url,
+                search: `?page=${page + 1}`,
+              }}
+              currentPage={page}
+              lastPages={total_pages}
+            />
           </Pagination>
         </Container>
       </section>
     );
-  };
-};
+  }
+}
 
 export default Tvs;

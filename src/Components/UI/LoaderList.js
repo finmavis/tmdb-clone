@@ -5,12 +5,12 @@ import Loader from './Loader';
 
 export default props => (
   <Fragment>
-    <Col column="col-1-of-2">
+    <Col column='col-1-of-2'>
       <Card>
         <Loader />
       </Card>
     </Col>
-    <Col column="col-1-of-2">
+    <Col column='col-1-of-2'>
       <Card>
         <Loader />
       </Card>

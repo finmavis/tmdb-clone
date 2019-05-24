@@ -7,24 +7,26 @@ import { yearList, sortByList } from '../../shared/List';
 const SelectList = ({ year, sort, onChange }) => (
   <form>
     <SelectItem
-      name="year"
+      name='year'
       options={yearList}
-      label="Year"
+      label='Year'
       selected={year}
-      onChange={(value, name) => onChange(value, name)} />
+      onChange={(value, name) => onChange(value, name)}
+    />
     <SelectItem
-      name="sort"
+      name='sort'
       options={sortByList}
-      label="Sort By"
+      label='Sort By'
       selected={sort}
-      onChange={(value, name) => onChange(value, name)} />
+      onChange={(value, name) => onChange(value, name)}
+    />
   </form>
 );
 
 SelectList.propTypes = {
   year: PropTypes.object.isRequired,
   sort: PropTypes.object.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
 };
 
 export default SelectList;

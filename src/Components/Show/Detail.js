@@ -1,29 +1,47 @@
-import React from "react";
-import { Container, Row, Col } from "../UI/Grid";
-import Heading from "../UI/Heading";
-import Cast from "./Cast";
-import Recomendation from "./Recomendation";
-import Facts from "./Facts";
+import React from 'react';
+import { Container, Row, Col } from '../UI/Grid';
+import Heading from '../UI/Heading';
+import Cast from './Cast';
+import Recomendation from './Recomendation';
+import Facts from './Facts';
 
-import "./Detail.css";
+import './Detail.css';
 
 const Detail = props => {
-  const { url, title, casts, recommendations, homepage, social, status, releaseDate, language, genres, budget, revenue, runtime, type, episodeRuntime, networks } = props;
+  const {
+    url,
+    title,
+    casts,
+    recommendations,
+    homepage,
+    social,
+    status,
+    releaseDate,
+    language,
+    genres,
+    budget,
+    revenue,
+    runtime,
+    type,
+    episodeRuntime,
+    networks,
+  } = props;
   const socialObj = { ...social, homepage };
   return (
-    <div className="show-detail">
+    <div className='show-detail'>
       <Container>
         <Row>
-          <Col column="col-3-of-4">
+          <Col column='col-3-of-4'>
             <Cast casts={casts} />
-            <Recomendation 
+            <Recomendation
               url={url}
               title={title}
-              recommendations={recommendations} />
+              recommendations={recommendations}
+            />
           </Col>
-          <Col column="col-1-of-4">
-            <section className="facts">
-              <Heading type="h3">Facts</Heading>
+          <Col column='col-1-of-4'>
+            <section className='facts'>
+              <Heading type='h3'>Facts</Heading>
               <Facts
                 url={url}
                 social={{ ...socialObj }}
@@ -36,7 +54,8 @@ const Detail = props => {
                 revenue={revenue}
                 runtime={runtime}
                 episodeRuntime={episodeRuntime}
-                networks={networks} />
+                networks={networks}
+              />
             </section>
           </Col>
         </Row>

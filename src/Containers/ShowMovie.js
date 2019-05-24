@@ -25,31 +25,29 @@ class ShowMovie extends Component {
     title: null,
     vote_average: 0,
     videos: {
-      results: [
-        {}
-      ]
+      results: [{}],
     },
     casts: {
-      cast: []
+      cast: [],
     },
     recommendations: {
-      results: []
+      results: [],
     },
     external_ids: {},
-    modal: false
-  }
+    modal: false,
+  };
 
   componentDidMount() {
     const { id } = this.props.match.params;
     this.loadSingleMovie(id);
-  };
+  }
 
   componentDidUpdate(prevProps, prevState) {
     const { id } = this.props.match.params;
-    if(prevProps.match.url !== this.props.match.url) {
-      this.loadSingleMovie(id)
-    };
-  };
+    if (prevProps.match.url !== this.props.match.url) {
+      this.loadSingleMovie(id);
+    }
+  }
 
   loadSingleMovie = async id => {
     this.toggleLoading();
@@ -57,36 +55,58 @@ class ShowMovie extends Component {
     this.setState({
       ...this.state,
       ...data,
-      loading: false
+      loading: false,
     });
     window.scroll({
       top: 0,
-    })
+    });
   };
 
   toggleLoading = () => {
-    this.setState({loading: !this.state.loading});
+    this.setState({ loading: !this.state.loading });
   };
-  
+
   toggleModal = () => {
-    this.setState({modal: !this.state.modal})
-  }
+    this.setState({ modal: !this.state.modal });
+  };
 
   render() {
-    const { poster_path, title, release_date, vote_average, overview, backdrop_path, homepage, external_ids, status, genres, budget, revenue, runtime, loading, original_language, modal } = this.state;
+    const {
+      poster_path,
+      title,
+      release_date,
+      vote_average,
+      overview,
+      backdrop_path,
+      homepage,
+      external_ids,
+      status,
+      genres,
+      budget,
+      revenue,
+      runtime,
+      loading,
+      original_language,
+      modal,
+    } = this.state;
     const { cast } = this.state.casts;
-    const { results:recommendations } = this.state.recommendations;
-    const trailer = this.state.videos.results.find(video => video.type === "Trailer");
-    const lang = languageList.find(lang => lang.iso_639_1 === original_language);
-    const [ , url, ] = this.props.match.url.split("/");
+    const { results: recommendations } = this.state.recommendations;
+    const trailer = this.state.videos.results.find(
+      video => video.type === 'Trailer',
+    );
+    const lang = languageList.find(
+      lang => lang.iso_639_1 === original_language,
+    );
+    const [, url] = this.props.match.url.split('/');
     document.title = `TMDB Clone ${title ? `| ${title}` : ''}`;
     return (
-      <section className="section-show">
-        { loading 
-          ? <Container>
-              <Loader type="show" />
-            </Container>
-          : <Fragment>
+      <section className='section-show'>
+        {loading ? (
+          <Container>
+            <Loader type='show' />
+          </Container>
+        ) : (
+          <Fragment>
             <Header
               title={title}
               poster={poster_path}
@@ -96,7 +116,8 @@ class ShowMovie extends Component {
               text={overview}
               backdrop_path={backdrop_path}
               modal={modal}
-              toggleModal={this.toggleModal} />
+              toggleModal={this.toggleModal}
+            />
             <Detail
               url={url}
               title={title}
@@ -107,15 +128,16 @@ class ShowMovie extends Component {
               status={status}
               releaseDate={release_date}
               language={lang.english_name}
-              genres={genres} 
+              genres={genres}
               budget={budget}
               revenue={revenue}
-              runtime={runtime} />
-            </Fragment>
-        }
+              runtime={runtime}
+            />
+          </Fragment>
+        )}
       </section>
     );
-  };
-};
+  }
+}
 
 export default ShowMovie;

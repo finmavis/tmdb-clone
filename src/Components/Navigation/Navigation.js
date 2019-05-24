@@ -39,7 +39,7 @@ const Navigation = props => (
   <Nav>
     <Container>
       <NavLogo>
-        <Link to="/">TMDB Clone</Link>
+        <Link to='/'>TMDB Clone</Link>
       </NavLogo>
       <NavigationList />
     </Container>
@@ -47,4 +47,3 @@ const Navigation = props => (
 );
 
 export default Navigation;
-

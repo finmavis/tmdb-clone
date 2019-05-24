@@ -10,7 +10,9 @@ const NavItems = styled.ul`
 
 const NavigationList = props => (
   <NavItems>
-    { navList.map((navItem, i) => <NavigationItem key={i} {...navItem} />) }
+    {navList.map((navItem, i) => (
+      <NavigationItem key={i} {...navItem} />
+    ))}
   </NavItems>
 );
 

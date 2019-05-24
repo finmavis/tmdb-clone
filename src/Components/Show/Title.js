@@ -4,10 +4,11 @@ import './Title.css';
 
 const Title = props => {
   const { name, year } = props;
-  const [ singleYear ] = year.split('-');
+  const [singleYear] = year.split('-');
   return (
-    <h2 className="show-title">
-      {name} { year ? <span className="show-title-muted">({singleYear})</span> : ''}
+    <h2 className='show-title'>
+      {name}{' '}
+      {year ? <span className='show-title-muted'>({singleYear})</span> : ''}
     </h2>
   );
 };

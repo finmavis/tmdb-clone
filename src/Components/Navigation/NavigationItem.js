@@ -22,13 +22,15 @@ const NavItem = styled.li`
 
 const NavigationItem = ({ name, path }) => (
   <NavItem>
-    <Link to={`${path}`} className="nav-link">{name}</Link>
+    <Link to={`${path}`} className='nav-link'>
+      {name}
+    </Link>
   </NavItem>
 );
 
 NavigationItem.propTypes = {
   name: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired
+  path: PropTypes.string.isRequired,
 };
 
 export default NavigationItem;
