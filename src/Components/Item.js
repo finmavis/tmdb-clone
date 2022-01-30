@@ -7,7 +7,7 @@ import './Item.css';
 
 import formatDate from '../helpers/formatDate';
 
-const baseURL = 'https://image.tmdb.org/t/p/w154';
+const baseURL = 'https://image.tmdb.org/t/p/original';
 
 const Item = ({
   type,

@@ -6,7 +6,7 @@ import './Recomendation.css';
 
 const Recomendation = props => {
   const { recommendations, title, url } = props;
-  const baseURL = 'https://image.tmdb.org/t/p/w300';
+  const baseURL = 'https://image.tmdb.org/t/p/original';
   return (
     <section className='recomendation'>
       <Heading type='h3'>Recomendation</Heading>

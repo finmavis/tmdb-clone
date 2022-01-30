@@ -3,7 +3,7 @@ import ImagePlaceholder from '../UI/ImagePlaceholder';
 
 import './Poster.css';
 
-const baseURL = 'https://image.tmdb.org/t/p/w300';
+const baseURL = 'https://image.tmdb.org/t/p/original';
 
 const Poster = props => {
   const { imageUrl, title } = props;

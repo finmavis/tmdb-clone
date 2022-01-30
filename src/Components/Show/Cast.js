@@ -9,7 +9,7 @@ import './Cast.css';
 
 const Cast = props => {
   const { casts } = props;
-  const baseUrl = 'https://image.tmdb.org/t/p/w185';
+  const baseUrl = 'https://image.tmdb.org/t/p/original';
   return (
     <section className='casts'>
       <Heading type='h3'>Top Billed Cast</Heading>
