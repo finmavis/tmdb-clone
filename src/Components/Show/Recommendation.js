@@ -2,29 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Heading from '../UI/Heading';
 
-import './Recomendation.css';
+import './Recommendation.css';
 
-const Recomendation = props => {
+const Recommendation = props => {
   const { recommendations, title, url } = props;
   const baseURL = 'https://image.tmdb.org/t/p/original';
   return (
-    <section className='recomendation'>
-      <Heading type='h3'>Recomendation</Heading>
+    <section className='recommendation'>
+      <Heading type='h3'>Recommendation</Heading>
       {recommendations.length !== 0 ? (
-        <div className='recomendation-scroll'>
+        <div className='recommendation-scroll'>
           {recommendations.map(item => (
-            <div className='recomendation-item' key={item.id}>
-              <div className='recomendation-image'>
+            <div className='recommendation-item' key={item.id}>
+              <div className='recommendation-image'>
                 <Link to={`/${url}/${item.id}`}>
                   <img
                     src={baseURL + item.backdrop_path}
                     alt={item.title || item.name}
-                    className='recomendation-images'
+                    className='recommendation-images'
                   />
                 </Link>
               </div>
-              <div className='recomendation-info'>
-                <Link to={`/${url}/${item.id}`} className='recomendation-link'>
+              <div className='recommendation-info'>
+                <Link to={`/${url}/${item.id}`} className='recommendation-link'>
                   {item.title || item.name}
                 </Link>
                 <span className='vote-rating'>{item.vote_average}/10</span>
@@ -39,4 +39,4 @@ const Recomendation = props => {
   );
 };
 
-export default Recomendation;
+export default Recommendation;

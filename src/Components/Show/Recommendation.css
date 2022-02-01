@@ -1,38 +1,38 @@
-.recomendation {
+.recommendation {
   border-top: 1px solid #d7d7d7;
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
 
-.recomendation-scroll {
+.recommendation-scroll {
   overflow-y: hidden;
   overflow-x: scroll;
   width: 100%;
   white-space: nowrap;
 }
 
-.recomendation-item {
+.recommendation-item {
   width: 25rem;
   font-family: inherit;
   font-size: 1.4rem;
   display: inline-block;
 }
 
-.recomendation-item:not(:last-child) {
+.recommendation-item:not(:last-child) {
   margin-right: 1rem;
 }
 
-.recomendation-images {
+.recommendation-images {
   width: 100%;
   border-radius: 0.5rem;
 }
 
-.recomendation-info {
+.recommendation-info {
   display: flex;
   padding: 0.5rem 0;
 }
 
-.recomendation-link {
+.recommendation-link {
   margin-right: auto;
   color: var(--color-black);
   width: 80%;

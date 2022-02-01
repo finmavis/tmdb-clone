@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from '../UI/Grid';
 import Heading from '../UI/Heading';
 import Cast from './Cast';
-import Recomendation from './Recomendation';
+import Recommendation from './Recommendation';
 import Facts from './Facts';
 
 import './Detail.css';
@@ -33,7 +33,7 @@ const Detail = props => {
         <Row>
           <Col column='col-3-of-4'>
             <Cast casts={casts} />
-            <Recomendation
+            <Recommendation
               url={url}
               title={title}
               recommendations={recommendations}
