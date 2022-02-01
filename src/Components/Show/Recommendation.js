@@ -27,7 +27,9 @@ const Recommendation = props => {
                 <Link to={`/${url}/${item.id}`} className='recommendation-link'>
                   {item.title || item.name}
                 </Link>
-                <span className='vote-rating'>{item.vote_average}/10</span>
+                <span className='vote-rating'>
+                  {item.vote_average.toFixed(1)}/10
+                </span>
               </div>
             </div>
           ))}
